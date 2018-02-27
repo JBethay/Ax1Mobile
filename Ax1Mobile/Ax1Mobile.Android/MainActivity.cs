@@ -1,11 +1,8 @@
-﻿using System;
-
+﻿
 using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
+using Ax1.DAL;
 
 namespace Ax1Mobile.Droid
 {
@@ -19,8 +16,10 @@ namespace Ax1Mobile.Droid
 
             base.OnCreate(bundle);
 
+            var costCenterRepository = new CostCenterRepository();
+
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App());
+            LoadApplication(new App(costCenterRepository));
         }
     }
 }

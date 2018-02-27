@@ -9,7 +9,7 @@ namespace Ax1Mobile
 {
 	public partial class App : Application
 	{
-		public App ()
+		public App (ICostCenterRepository costCenterRepository) // add as a param
 		{
 			InitializeComponent();
 
