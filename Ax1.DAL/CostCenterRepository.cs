@@ -28,13 +28,13 @@ namespace Ax1.DAL
         }
 
         /// <summary>
-        /// Finds single cost center by ID
+        /// Finds single cost center by ID, returns details
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<CostCenter> GetProductByIdAsync(int id)
+        public async Task<CostCenter> GetCostCenterByIdAsync(int id)
         {
-            var costCenter = await _context.CostCenters.FindAsync(id);
+            var costCenter = await _context.CostCenters.SingleOrDefaultAsync(e => e.CostCenterId == id);
             return costCenter;
         }
     }

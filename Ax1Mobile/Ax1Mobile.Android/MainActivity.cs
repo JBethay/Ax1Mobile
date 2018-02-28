@@ -17,9 +17,10 @@ namespace Ax1Mobile.Droid
             base.OnCreate(bundle);
 
             var costCenterRepository = new CostCenterRepository();
+            var employeeRepositroy = new EmployeeRepository();
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App(costCenterRepository));
+            LoadApplication(new App(costCenterRepository, employeeRepositroy));
         }
     }
 }

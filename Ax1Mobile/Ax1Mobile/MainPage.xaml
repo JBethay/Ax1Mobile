@@ -8,4 +8,6 @@
            VerticalOptions="Center" 
            HorizontalOptions="Center" />
 
+    <ListView ItemsSource= "{Binding CostCenters}" />
+
 </ContentPage>

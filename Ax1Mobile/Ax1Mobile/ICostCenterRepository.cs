@@ -9,6 +9,6 @@ namespace Ax1Mobile
     {
         Task<IEnumerable<CostCenter>> GetCostCenterAsync();
 
-        Task<CostCenter> GetProductByIdAsync(int id);
+        Task<CostCenter> GetCostCenterByIdAsync(int id);
     }
 }
