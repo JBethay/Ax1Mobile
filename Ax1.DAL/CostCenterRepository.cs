@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ax1Mobile;
@@ -9,33 +10,109 @@ namespace Ax1.DAL
 {
     public class CostCenterRepository : ICostCenterRepository
     {
-        private readonly Ax1Context _context;
+        private readonly Ax1Context _dbContext;
 
-        public CostCenterRepository()
+        public CostCenterRepository(string dbPath)
         {
-            _context = new Ax1Context();
+            _dbContext = new Ax1Context(dbPath);
         }
 
-        /// <summary>
-        /// Get List of Cost Centers Async
-        /// </summary>
-        /// <returns></returns>
-        public async Task<IEnumerable<CostCenter>> GetCostCenterAsync()
+        public async Task<IEnumerable<CostCenter>> GetCostCentersAsync()
         {
-            var costCenters = await _context.CostCenters.ToListAsync();
+            try
+            {
+                var costcenters = await _dbContext.CostCenters.ToListAsync();
 
-            return costCenters;
+                return costcenters;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
 
-        /// <summary>
-        /// Finds single cost center by ID, returns details
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         public async Task<CostCenter> GetCostCenterByIdAsync(int id)
         {
-            var costCenter = await _context.CostCenters.SingleOrDefaultAsync(e => e.CostCenterId == id);
-            return costCenter;
+            try
+            {
+                var costCenter = await _dbContext.CostCenters.FindAsync(id);
+
+                return costCenter;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public async Task<bool> AddCostCenterAsync(CostCenter costCenter)
+        {
+            try
+            {
+                var tracking = await _dbContext.CostCenters.AddAsync(costCenter);
+
+                await _dbContext.SaveChangesAsync();
+
+                var isAdded = tracking.State == EntityState.Added;
+
+                return isAdded;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> UpdateCostCenterAsync(CostCenter costCenter)
+        {
+            try
+            {
+                var tracking = _dbContext.Update(costCenter);
+
+                await _dbContext.SaveChangesAsync();
+
+                var isModified = tracking.State == EntityState.Modified;
+
+                return isModified;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> RemoveCostCenterAsync(int id)
+        {
+            try
+            {
+                var costCenter = await _dbContext.CostCenters.FindAsync(id);
+
+                var tracking = _dbContext.Remove(costCenter);
+
+                await _dbContext.SaveChangesAsync();
+
+                var isDeleted = tracking.State == EntityState.Deleted;
+
+                return isDeleted;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public async Task<IEnumerable<CostCenter>> QueryCostCenterAsync(Func<CostCenter, bool> predicate)
+        {
+            try
+            {
+                var costCenters = _dbContext.CostCenters.Where(predicate);
+
+                return costCenters.ToList();
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
     }
 }

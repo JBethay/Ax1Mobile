@@ -9,18 +9,7 @@ namespace Ax1.DAL
     /// </summary>
     public class Ax1Context : DbContext
     {
-        private readonly string _connection;
-        
-        /// <summary>
-        /// Constructor 
-        /// </summary>
-        /// <param name="options"></param>
-        public Ax1Context()
-        {
-            _connection = Connection.ConnectionString;
-
-            Database.EnsureCreated();
-        }
+        private readonly string _localdb;
 
         /// <summary>
         /// Cost centers dataset, a table of my cost centers.
@@ -30,18 +19,28 @@ namespace Ax1.DAL
         /// <summary>
         /// Employees table that is created.
         /// </summary>
-        public DbSet<Employee> Employees { get; set; }
+        //public DbSet<Employee> Employees { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        /// <summary>
+        /// Constructor 
+        /// </summary>
+        /// <param name="options"></param>
+        public Ax1Context(string localdb)
         {
-            modelBuilder.Entity<CostCenter>().ToTable("CostCenter");
-            modelBuilder.Entity<Employee>().ToTable("Employee");
+            _localdb = localdb;
+
+            Database.EnsureCreated();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(_connection);
+            optionsBuilder.UseSqlite(string.Format("Filename={0}", _localdb));
         }
 
+        /*protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<CostCenter>().ToTable("CostCenter");
+            modelBuilder.Entity<Employee>().ToTable("Employee");
+        } */
     }
 }

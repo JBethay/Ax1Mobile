@@ -7,7 +7,7 @@ namespace Ax1Mobile
 {
     public interface ICostCenterRepository
     {
-        Task<IEnumerable<CostCenter>> GetCostCenterAsync();
+        Task<IEnumerable<CostCenter>> GetCostCentersAsync();
 
         Task<CostCenter> GetCostCenterByIdAsync(int id);
     }

@@ -21,6 +21,11 @@ namespace Ax1Mobile
 
         public StateAbrv State { get; set; }
 
-        public ICollection<Employee> CenterEmployees { get; set; }
+        //public ICollection<Employee> CenterEmployees { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("({0}) {1} {2}", CostCenterId, CostCenterName, State);
+        }
     }
 }

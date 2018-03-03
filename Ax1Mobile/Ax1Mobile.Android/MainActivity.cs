@@ -3,6 +3,7 @@ using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Ax1.DAL;
+using System.IO;
 
 namespace Ax1Mobile.Droid
 {
@@ -16,11 +17,13 @@ namespace Ax1Mobile.Droid
 
             base.OnCreate(bundle);
 
-            var costCenterRepository = new CostCenterRepository();
-            var employeeRepositroy = new EmployeeRepository();
+            var localdb = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "localDB.db");
+
+            var costCenterRepository = new CostCenterRepository(localdb);
+            //var employeeRepositroy = new EmployeeRepository(localdb);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App(costCenterRepository, employeeRepositroy));
+            LoadApplication(new App(costCenterRepository));
         }
     }
 }
