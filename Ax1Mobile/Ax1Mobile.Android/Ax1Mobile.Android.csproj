@@ -27,7 +27,7 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AndroidLinkMode>Full</AndroidLinkMode>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <AotAssemblies>false</AotAssemblies>
     <EnableLLVM>false</EnableLLVM>
     <BundleAssemblies>false</BundleAssemblies>
@@ -89,10 +89,6 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Ax1.DAL\Ax1.DAL.csproj">
-      <Project>{ac966010-8e51-4bac-a756-35d649d37c61}</Project>
-      <Name>Ax1.DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Ax1Mobile\Ax1Mobile.csproj">
       <Project>{3d0a3cd2-30b7-44f7-b3b8-606ce3202011}</Project>
       <Name>Ax1Mobile</Name>

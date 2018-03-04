@@ -2,7 +2,6 @@
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using Ax1.DAL;
 using System.IO;
 
 namespace Ax1Mobile.Droid
@@ -17,7 +16,7 @@ namespace Ax1Mobile.Droid
 
             base.OnCreate(bundle);
 
-            var localdb = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "localDB.db");
+            var localdb = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "Ax1LocalDB.db");
 
             var costCenterRepository = new CostCenterRepository(localdb);
             //var employeeRepositroy = new EmployeeRepository(localdb);
