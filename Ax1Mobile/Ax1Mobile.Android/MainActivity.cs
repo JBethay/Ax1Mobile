@@ -1,8 +1,11 @@
-﻿
+﻿using System;
+
 using Android.App;
 using Android.Content.PM;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
 using Android.OS;
-using System.IO;
 
 namespace Ax1Mobile.Droid
 {
@@ -16,13 +19,8 @@ namespace Ax1Mobile.Droid
 
             base.OnCreate(bundle);
 
-            var localdb = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "Ax1LocalDB.db");
-
-            var costCenterRepository = new CostCenterRepository(localdb);
-            //var employeeRepositroy = new EmployeeRepository(localdb);
-
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App(costCenterRepository));
+            LoadApplication(new App());
         }
     }
 }

@@ -9,21 +9,11 @@ namespace Ax1Mobile
 {
 	public partial class App : Application
 	{
-        public App()
-        {
-            InitializeComponent();
-        }
-
-        public App (ICostCenterRepository costCenterRepository)
+		public App ()
 		{
 			InitializeComponent();
 
-            var costCenterPage = new CostCenterpage()
-            {
-                BindingContext = new CostCenterViewModel(costCenterRepository)
-            };
-
-            MainPage = new NavigationPage(costCenterPage);
+			MainPage = new Ax1Mobile.MainPage();
 		}
 
 		protected override void OnStart ()

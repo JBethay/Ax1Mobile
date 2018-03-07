@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8165E435-8CEA-472B-A61A-100DB5A48521}</ProjectGuid>
+    <ProjectGuid>{BFDD15E8-F387-43B7-A993-C12D3869FEAF}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
     <RootNamespace>Ax1Mobile.iOS</RootNamespace>
@@ -119,15 +119,12 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore">
-      <Version>2.0.1</Version>
-    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.280555" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Ax1Mobile\Ax1Mobile.csproj">
-      <Project>{0365D0AF-59A1-4F97-8447-0784E4182F2B}</Project>
+      <Project>{40AB4AA6-60AC-4AF0-A912-A8224ED86D53}</Project>
       <Name>Ax1Mobile</Name>
     </ProjectReference>
   </ItemGroup>
