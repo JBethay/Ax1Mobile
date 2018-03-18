@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Ax1Mobile"
              x:Class="Ax1Mobile.MainPage">
 
-	<Label Text="Welcome to Xamarin.Forms!-MAIN" 
+	<Label Text="Welcome to Xamarin.Forms!-MM" 
            VerticalOptions="Center" 
            HorizontalOptions="Center" />
 

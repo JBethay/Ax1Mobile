@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ax1Mobile.Views.CostCentersViewPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="CostCentersListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <!--<TextCell Text="{Binding CostCenterName}"></TextCell> -->
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" Padding="10">
+                                <StackLayout Orientation="Horizontal" Padding="5">
+                                    <Label Text="{Binding CostCenterName}" FontSize="Medium"/>
+                                    <Label Text="{Binding State}" FontSize="Medium"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

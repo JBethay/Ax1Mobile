@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
 
 namespace Ax1Mobile
 {
@@ -9,33 +9,23 @@ namespace Ax1Mobile
     /// </summary>
     public class Employee
     {
-        [Key]
         public int EmployeeId { get; set; }
 
-        [DisplayName("First Name")]
-        [RegularExpression(@"^[A-Z][-a-zA-Z]+$", ErrorMessage = "Name is not formated properly.")]
-        [MaxLength(50)]
+        [JsonProperty("FirstName")]
         public string FirstName { get; set; }
 
-        [DisplayName("Last Name")]
-        [RegularExpression(@"^[A-Z][-a-zA-Z]+$", ErrorMessage = "Name is not formated properly.")]
-        [MaxLength(50)]
+        [JsonProperty("LastName")]
         public string LastName { get; set; }
 
-        [DisplayName("Start Date")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        [JsonProperty("StartDate")]
         public DateTime StartDate { get; set; }
 
-        [DisplayName("Annual Pay")]
-        [DataType(DataType.Currency)]
-        [DisplayFormat(DataFormatString ="{0:C0}")]
+        [JsonProperty("AnnualPay")]
         public double AnnualPay { get; set; }
 
-        [DisplayName("Cost Center")]
+        [JsonProperty("CostCenterId")]
         public int CostCenterId { get; set; }
 
-        [DisplayName("Cost Center")]
         public CostCenter CostCenter { get; set; }
     }
 }
