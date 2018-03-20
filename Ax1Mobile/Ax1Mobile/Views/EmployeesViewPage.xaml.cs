@@ -16,22 +16,23 @@ namespace Ax1Mobile.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class EmployeesViewPage : ContentPage
 	{
-        private const string Url = "https://ax1web.azurewebsites.net/api/Employees.js";
+        private const string Uri = "https://ax1web.azurewebsites.net/api/Employees.js";
         private readonly HttpClient _client = new HttpClient();
         private ObservableCollection<Employee> _employees;
 
         public EmployeesViewPage ()
 		{
 			InitializeComponent ();
+
+            DownloadEmployeesAsync();
 		}
 
-        protected override async void OnAppearing()
+        protected async void DownloadEmployeesAsync()
         {
-            string content = await _client.GetStringAsync(Url);
+            string content = await _client.GetStringAsync(Uri);
             List<Employee> employees = JsonConvert.DeserializeObject<List<Employee>>(content);
             _employees = new ObservableCollection<Employee>(employees);
             EmployeesListView.ItemsSource = _employees;
-            base.OnAppearing();
         }
 
     }

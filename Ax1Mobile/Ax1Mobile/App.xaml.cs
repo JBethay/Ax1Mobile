@@ -13,8 +13,9 @@ namespace Ax1Mobile
 		{
 			InitializeComponent();
 
-            MainPage = new Ax1Mobile.Views.EmployeesViewPage();
+            //MainPage = new Ax1Mobile.Views.EmployeesViewPage();
             //MainPage = new Ax1Mobile.Views.CostCentersViewPage();
+            MainPage = new NavigationPage(new Ax1Mobile.Views.MainTabbedPage());
         }
 
 		protected override void OnStart ()
