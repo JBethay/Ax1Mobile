@@ -12,9 +12,6 @@ namespace Ax1Mobile
 		public App ()
 		{
 			InitializeComponent();
-
-            //MainPage = new Ax1Mobile.Views.EmployeesViewPage();
-            //MainPage = new Ax1Mobile.Views.CostCentersViewPage();
             MainPage = new NavigationPage(new Ax1Mobile.Views.MainTabbedPage());
         }
 

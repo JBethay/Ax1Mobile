@@ -2,17 +2,22 @@
 <xf:BottomBarPage xmlns="http://xamarin.com/schemas/2014/forms"
                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                xmlns:xf="clr-namespace:BottomBar.XamarinForms"
+               xmlns:local="clr-namespace:Ax1Mobile.Views;assembly=Ax1Mobile"
                x:Class="Ax1Mobile.Views.MainTabbedPage">
 
-    <ContentPage Title="Home"
+    <local:HomePage Title="Home"
+                 Icon="Home_Icon.png"
                  xf:BottomBarPageExtensions.TabColor="#FFD3D3D3"/>
 
-    <ContentPage Title="Cost Centers"
+    <local:CostCentersViewPage Title="Cost Centers"
+                 Icon="CostCenter_Icon.png"
                  xf:BottomBarPageExtensions.TabColor="#808080"/>
 
-    <ContentPage Title="Employees"
-                  xf:BottomBarPageExtensions.TabColor="#2F4F4F"/>
+    <local:EmployeesViewPage Title="Employees"
+                 Icon="Employee_Icon.png"
+                 xf:BottomBarPageExtensions.TabColor="#2F4F4F"/>
 
     <ContentPage Title="Reports"
-                  xf:BottomBarPageExtensions.TabColor="#FF778899"/>
+                 Icon="Report_Icon.png"
+                 xf:BottomBarPageExtensions.TabColor="#FF778899"/>
 </xf:BottomBarPage>

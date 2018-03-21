@@ -44,13 +44,15 @@ namespace BottomBar.Droid.Renderers
 		IPageController _pageController;
 	    IDictionary<Page, BottomBarBadge> _badges;
 
-		public BottomBarPageRenderer ()
+#pragma warning disable CS0618 // Type or member is obsolete
+        public BottomBarPageRenderer ()
 		{
 			AutoPackage = false;
-		}
+        }
+#pragma warning restore CS0618 // Type or member is obsolete
 
-		#region IOnTabClickListener
-		public virtual void OnTabSelected (int position)
+        #region IOnTabClickListener
+        public virtual void OnTabSelected (int position)
 		{
 			//Do we need this call? It's also done in OnElementPropertyChanged
 			SwitchContent(Element.Children [position]);
@@ -75,8 +77,10 @@ namespace BottomBar.Droid.Renderers
 					IVisualElementRenderer pageRenderer = Platform.GetRenderer (pageToRemove);
 
 					if (pageRenderer != null) {
-						pageRenderer.ViewGroup.RemoveFromParent ();
-						pageRenderer.Dispose ();
+#pragma warning disable CS0618 // Type or member is obsolete
+                        pageRenderer.ViewGroup.RemoveFromParent ();
+#pragma warning restore CS0618 // Type or member is obsolete
+                        pageRenderer.Dispose ();
 					}
 
                     pageToRemove.PropertyChanged -= OnPagePropertyChanged;
@@ -132,9 +136,13 @@ namespace BottomBar.Droid.Renderers
 				if (_bottomBar == null) {
 					_pageController = PageController.Create (bottomBarPage);
 
-					// create a view which will act as container for Page's
-					_frameLayout = new FrameLayout (Forms.Context);
-					_frameLayout.LayoutParameters = new FrameLayout.LayoutParams (LayoutParams.MatchParent, LayoutParams.MatchParent, GravityFlags.Fill);
+                    // create a view which will act as container for Page's
+#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable IDE0017 // Simplify object initialization
+                    _frameLayout = new FrameLayout (Forms.Context);
+#pragma warning restore IDE0017 // Simplify object initialization
+#pragma warning restore CS0618 // Type or member is obsolete
+                    _frameLayout.LayoutParameters = new FrameLayout.LayoutParams (LayoutParams.MatchParent, LayoutParams.MatchParent, GravityFlags.Fill);
 					AddView (_frameLayout, 0);
 
 					// create bottomBar control
@@ -197,11 +205,15 @@ namespace BottomBar.Droid.Renderers
 			}
 
 			if (Platform.GetRenderer (view) == null) {
-				Platform.SetRenderer (view, Platform.CreateRenderer (view));
-			}
+#pragma warning disable CS0618 // Type or member is obsolete
+                Platform.SetRenderer (view, Platform.CreateRenderer (view));
+#pragma warning restore CS0618 // Type or member is obsolete
+            }
 
-			_frameLayout.AddView (Platform.GetRenderer (view).ViewGroup);
-		}
+#pragma warning disable CS0618 // Type or member is obsolete
+            _frameLayout.AddView (Platform.GetRenderer (view).ViewGroup);
+#pragma warning restore CS0618 // Type or member is obsolete
+        }
 
 		protected override void OnLayout (bool changed, int l, int t, int r, int b)
 		{
@@ -225,8 +237,10 @@ namespace BottomBar.Droid.Renderers
 					}
 
 					IVisualElementRenderer renderer = Platform.GetRenderer (child);
-					var navigationRenderer = renderer as NavigationPageRenderer;
-					if (navigationRenderer != null) {
+#pragma warning disable IDE0019 // Use pattern matching
+                    var navigationRenderer = renderer as NavigationPageRenderer;
+#pragma warning restore IDE0019 // Use pattern matching
+                    if (navigationRenderer != null) {
 						// navigationRenderer.ContainerPadding = tabsHeight;
 					}
 				}
