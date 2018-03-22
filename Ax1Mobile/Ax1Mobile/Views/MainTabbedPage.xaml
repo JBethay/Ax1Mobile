@@ -7,7 +7,7 @@
 
     <local:HomePage Title="Home"
                  Icon="Home_Icon.png"
-                 xf:BottomBarPageExtensions.TabColor="#FFD3D3D3"/>
+                 xf:BottomBarPageExtensions.TabColor="#adadad"/>
 
     <local:CostCentersViewPage Title="Cost Centers"
                  Icon="CostCenter_Icon.png"
@@ -17,7 +17,7 @@
                  Icon="Employee_Icon.png"
                  xf:BottomBarPageExtensions.TabColor="#2F4F4F"/>
 
-    <ContentPage Title="Reports"
+    <local:ReportsPage Title="Reports"
                  Icon="Report_Icon.png"
                  xf:BottomBarPageExtensions.TabColor="#FF778899"/>
 </xf:BottomBarPage>

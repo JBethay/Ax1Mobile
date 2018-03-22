@@ -3,24 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Ax1Mobile.Views.EmployeesViewPage">
     <ContentPage.Content>
-        <StackLayout>
-            <ListView x:Name="EmployeesListView">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <!--<TextCell Text="{Binding CostCenterName}"></TextCell> -->
-                        <ViewCell>
-                            <StackLayout Orientation="Vertical" Padding="10">
-                                <StackLayout Orientation="Horizontal" Padding="5">
-                                    <Label Text="{Binding FirstName}" FontSize="Micro"/>
-                                    <Label Text="{Binding LastName}" FontSize="Micro"/>
-                                    <Label Text="{Binding AnnualPay}" FontSize="Micro"/>
-                                    <Label Text="{Binding CostCenterId}" FontSize="Micro"/>
+        <ScrollView>
+            <StackLayout>
+                <ListView x:Name="EmployeesListView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <!--<TextCell Text="{Binding CostCenterName}"></TextCell> -->
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical" Padding="10">
+                                    <StackLayout Orientation="Horizontal" Padding="5">
+                                        <Label Text="{Binding FirstName}" FontSize="Micro"/>
+                                        <Label Text="{Binding LastName}" FontSize="Micro"/>
+                                        <Label Text="{Binding AnnualPay}" FontSize="Micro"/>
+                                        <Label Text="{Binding CostCenterId}" FontSize="Micro"/>
+                                    </StackLayout>
                                 </StackLayout>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
