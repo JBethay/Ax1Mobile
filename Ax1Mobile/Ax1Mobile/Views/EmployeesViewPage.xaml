@@ -15,7 +15,7 @@
                                         <Label Text="{Binding FirstName}" FontSize="Micro"/>
                                         <Label Text="{Binding LastName}" FontSize="Micro"/>
                                         <Label Text="{Binding AnnualPay}" FontSize="Micro"/>
-                                        <Label Text="{Binding CostCenterId}" FontSize="Micro"/>
+                                        <Label Text="{Binding CostCenter.CostCenterName}" FontSize="Micro"/>
                                     </StackLayout>
                                 </StackLayout>
                             </ViewCell>

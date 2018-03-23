@@ -17,6 +17,7 @@ namespace Ax1Mobile.Views
 	public partial class EmployeesViewPage : ContentPage
 	{
         private const string Uri = "https://ax1web.azurewebsites.net/api/Employees.js";
+        private const string UriCc = "https://ax1web.azurewebsites.net/api/CostCenters.js";
         private readonly HttpClient _client = new HttpClient();
         private ObservableCollection<Employee> _employees;
 
@@ -29,8 +30,17 @@ namespace Ax1Mobile.Views
 
         protected async void DownloadEmployeesAsync()
         {
-            string content = await _client.GetStringAsync(Uri);
-            List<Employee> employees = JsonConvert.DeserializeObject<List<Employee>>(content);
+            string contentE = await _client.GetStringAsync(Uri);
+            List<Employee> employees = JsonConvert.DeserializeObject<List<Employee>>(contentE);
+            
+            string contentC = await _client.GetStringAsync(UriCc);
+            List<CostCenter> costCenters = JsonConvert.DeserializeObject<List<CostCenter>>(contentC);
+
+            foreach(Employee e in employees)
+            {
+                e.CostCenter = costCenters.FirstOrDefault(o => o.CostCenterId == e.CostCenterId);
+            }
+
             _employees = new ObservableCollection<Employee>(employees);
             EmployeesListView.ItemsSource = _employees;
         }
