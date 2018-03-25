@@ -13,16 +13,16 @@ using System.Collections.ObjectModel;
 
 namespace Ax1Mobile.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CostCentersViewPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class CostCentersViewPage : ContentPage
+    {
         private const string Uri = "https://ax1web.azurewebsites.net/api/CostCenters.js";
         private readonly HttpClient _client = new HttpClient();
         private ObservableCollection<CostCenter> _costCenters;
 
-        public CostCentersViewPage ()
-		{
-			InitializeComponent ();
+        public CostCentersViewPage()
+        {
+            InitializeComponent();
 
             DownloadCostCentersAsync();
 
@@ -35,6 +35,5 @@ namespace Ax1Mobile.Views
             _costCenters = new ObservableCollection<CostCenter>(costCenters);
             CostCentersListView.ItemsSource = _costCenters;
         }
-
     }
 }

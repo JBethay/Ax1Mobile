@@ -1,24 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Ax1Mobile.Views.CostCentersViewPage">
+             x:Class="Ax1Mobile.Views.CostCentersViewPage"
+             BackgroundImage="GrayBlankAx1.png">
     <ContentPage.Content>
-        <StackLayout>
-            <ListView x:Name="CostCentersListView">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <!--<TextCell Text="{Binding CostCenterName}"></TextCell> -->
-                        <ViewCell>
-                            <StackLayout Orientation="Vertical" Padding="10">
-                                <StackLayout Orientation="Horizontal" Padding="5">
-                                    <Label Text="{Binding CostCenterName}" FontSize="Medium"/>
-                                    <Label Text="{Binding State}" FontSize="Medium"/>
-                                </StackLayout>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Padding="8">
+                    <Label Text="Cost Centers:" FontSize="Large" FontAttributes="Bold"/>
+                </StackLayout>
+                <ListView x:Name="CostCentersListView" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame OutlineColor="Black" BackgroundColor="Transparent">
+                                    <StackLayout Orientation="Vertical" Padding="8">
+                                        <StackLayout Orientation="Horizontal" Padding="0" >
+                                            <Label Text="Cost Center: " FontSize="Medium"/>
+                                            <Label Text="{Binding CostCenterName}" FontSize="Medium"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" Padding="0">
+                                            <Label Text="State:" FontSize="Medium"/>
+                                            <Label Text="{Binding State}" FontSize="Medium"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
