@@ -12,7 +12,7 @@ namespace Ax1Mobile
 		public App ()
 		{
 			InitializeComponent();
-            MainPage = new NavigationPage(new Ax1Mobile.Views.MainTabbedPage());
+            MainPage = new NavigationPage(new Ax1Mobile.Views.MainTabbedPage {Title="AX1-MOBILE"});
         }
 
 		protected override void OnStart ()

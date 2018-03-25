@@ -1,12 +1,56 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Ax1Mobile.Views.HomePage">
-    <ContentPage.Content>
+             xmlns:Controls="clr-namespace:Ax1Mobile"
+             x:Class="Ax1Mobile.Views.HomePage"
+             BackgroundImage="GrayBlankAx1.png">
+    <ScrollView Orientation="Vertical">
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!-Home"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout Padding="10">
+                <Label Text="Welcome to Ax1-Mobile"
+                       HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"
+                       FontSize="Large"/>
+            </StackLayout>
+            <StackLayout Padding="8">
+                <Label Text="About this application:"
+                       HorizontalOptions="Start"
+                       FontAttributes="Bold"
+                       FontSize="Medium"/>
+                <Label Text="Ax1-Mobile is a Xamarin Forms application that utilizes API functionality in the Ax1-Web
+                       application to retrieve stored data from an Azure SQL database. This application retrieves and
+                       deserializes JSON Data for the purpose of displaying the information and generating sample reports. 
+                       In addition the application integrates a Google Maps API for a geographic display of the retrieved data."
+                       HorizontalOptions="Start"
+                       FontSize="Small"/>
+                <Label Text="The data retrieved is read-only and the reports that are generated are the same reports that can be found in 
+                       the Ax1-Web application."
+                       FontSize="Small"/>
+                <Label Text="This Sample application is an extension of the Ax1-Web application and is designed to show how a mobile application and integrate with a web based application program interface."
+                       FontSize="Small"/>
+            </StackLayout>
+            <StackLayout Padding="8">
+                <Label Text="To see the Web App click the link below:"
+                       HorizontalOptions="Start"
+                       FontAttributes="Italic"
+                       FontSize="Small"/>
+                <Controls:HyperlinkLabel  Text="Https://Ax1web.AzureWebsites.net" HorizontalOptions="Start" VerticalOptions="End"/>
+                <Label Text="To see the code behind this application or more of my work visit my GitHub:"
+                       HorizontalOptions="Start"
+                       FontAttributes="Italic"
+                       FontSize="Small"/>
+                <Controls:HyperlinkLabel  Text="www.GitHub.com/Jbethay" HorizontalOptions="Start" VerticalOptions="End"/>
+            </StackLayout>
+            <StackLayout Padding="8">
+                <Label Text="Thanks for checking it out!"
+                       HorizontalOptions="Start"
+                       FontAttributes="Italic"
+                       FontSize="Small"/>
+                <Label Text="-Luke"
+                       HorizontalOptions="Start"
+                       FontAttributes="Italic"
+                       FontSize="Small"/>
+            </StackLayout>
         </StackLayout>
-    </ContentPage.Content>
+    </ScrollView>
 </ContentPage>
