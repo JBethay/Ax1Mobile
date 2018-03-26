@@ -64,7 +64,6 @@
     <Compile Include="BottomBar\Utils\PageController.cs" />
     <Compile Include="BottomBar\Utils\ReflectedProxy.cs" />
     <Compile Include="BottomBar\Utils\ResourceManagerEx.cs" />
-    <Compile Include="ExtendedViewCellRenderer.cs" />
     <Compile Include="HyperlinkLabelRenderer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

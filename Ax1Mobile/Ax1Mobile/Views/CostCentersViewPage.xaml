@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:Controls="clr-namespace:Ax1Mobile"
              x:Class="Ax1Mobile.Views.CostCentersViewPage"
              BackgroundImage="GrayBlankAx1.png">
     <ContentPage.Content>
@@ -13,22 +12,20 @@
                 <ListView x:Name="CostCentersListView" HasUnevenRows="True" IsPullToRefreshEnabled="False">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Controls:ExtendedViewCell SelectedBackgroundColor="#96aab3">
-                                <ViewCell.View>
-                                    <Frame OutlineColor="Black" BackgroundColor="Transparent">
-                                        <StackLayout Orientation="Vertical" Padding="8">
-                                            <StackLayout Orientation="Horizontal" Padding="0" >
-                                                <Label Text="Cost Center: " FontSize="Medium"/>
-                                                <Label Text="{Binding CostCenterName}" FontSize="Medium"/>
-                                            </StackLayout>
-                                            <StackLayout Orientation="Horizontal" Padding="0">
-                                                <Label Text="State:" FontSize="Medium"/>
-                                                <Label Text="{Binding State}" FontSize="Medium"/>
-                                            </StackLayout>
+                            <ViewCell>
+                                <Frame OutlineColor="Black" BackgroundColor="Transparent">
+                                    <StackLayout Orientation="Vertical" Padding="8">
+                                        <StackLayout Orientation="Horizontal" Padding="0" >
+                                            <Label Text="Cost Center: " FontSize="Medium"/>
+                                            <Label Text="{Binding CostCenterName}" FontSize="Medium"/>
                                         </StackLayout>
-                                    </Frame>
-                                </ViewCell.View>
-                            </Controls:ExtendedViewCell>
+                                        <StackLayout Orientation="Horizontal" Padding="0">
+                                            <Label Text="State:" FontSize="Medium"/>
+                                            <Label Text="{Binding State}" FontSize="Medium"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

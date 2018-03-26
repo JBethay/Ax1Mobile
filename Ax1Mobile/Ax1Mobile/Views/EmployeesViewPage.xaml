@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:Controls="clr-namespace:Ax1Mobile"
              x:Class="Ax1Mobile.Views.EmployeesViewPage"
              BackgroundImage="GrayBlankAx1.png">
     <ContentPage.Content>
@@ -13,27 +12,25 @@
                 <ListView x:Name="EmployeesListView" HasUnevenRows="True" IsPullToRefreshEnabled="False">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Controls:ExtendedViewCell SelectedBackgroundColor="#96aab3">
-                                <ViewCell.View>
-                                    <Frame OutlineColor="Black" BackgroundColor="Transparent">
-                                        <StackLayout Orientation="Vertical" Padding="8">
-                                            <StackLayout Orientation="Horizontal" Padding="0">
-                                                <Label Text="Name: " FontSize="Medium"/>
-                                                <Label Text="{Binding FirstName}" FontSize="Medium"/>
-                                                <Label Text="{Binding LastName}" FontSize="Medium"/>
-                                            </StackLayout>
-                                            <StackLayout Orientation="Horizontal" Padding="0">
-                                                <Label Text="Annual Pay: " FontSize="Medium"/>
-                                                <Label Text="{Binding AnnualPay, StringFormat='{0:C0}'}" FontSize="Medium"/>
-                                            </StackLayout>
-                                            <StackLayout Orientation="Horizontal" Padding="0">
-                                                <Label Text="Cost Center: " FontSize="Medium"/>
-                                                <Label Text="{Binding CostCenter.CostCenterName}" FontSize="Medium"/>
-                                            </StackLayout>
+                            <ViewCell>
+                                <Frame OutlineColor="Black" BackgroundColor="Transparent">
+                                    <StackLayout Orientation="Vertical" Padding="8">
+                                        <StackLayout Orientation="Horizontal" Padding="0">
+                                            <Label Text="Name: " FontSize="Medium"/>
+                                            <Label Text="{Binding FirstName}" FontSize="Medium"/>
+                                            <Label Text="{Binding LastName}" FontSize="Medium"/>
                                         </StackLayout>
-                                    </Frame>
-                                </ViewCell.View>
-                            </Controls:ExtendedViewCell>
+                                        <StackLayout Orientation="Horizontal" Padding="0">
+                                            <Label Text="Annual Pay: " FontSize="Medium"/>
+                                            <Label Text="{Binding AnnualPay, StringFormat='{0:C0}'}" FontSize="Medium"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" Padding="0">
+                                            <Label Text="Cost Center: " FontSize="Medium"/>
+                                            <Label Text="{Binding CostCenter.CostCenterName}" FontSize="Medium"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
