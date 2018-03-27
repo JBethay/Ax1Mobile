@@ -25,10 +25,10 @@ namespace Ax1Mobile.Views
 		{
 			InitializeComponent ();
 
-            DownloadEmployeesAsync();
+            SetEmployeesAsync();
 		}
 
-        protected async void DownloadEmployeesAsync()
+        protected async Task<ObservableCollection<Employee>> DownloadEmployeesAsync()
         {
             string contentE = await _client.GetStringAsync(Uri);
             List<Employee> employees = JsonConvert.DeserializeObject<List<Employee>>(contentE);
@@ -42,7 +42,21 @@ namespace Ax1Mobile.Views
             }
 
             _employees = new ObservableCollection<Employee>(employees);
-            EmployeesListView.ItemsSource = _employees;
+
+            return _employees;
+        }
+
+        protected async void SetEmployeesAsync()
+        {
+            EmployeesListView.ItemsSource = null;
+            EmployeesListView.ItemsSource = await DownloadEmployeesAsync();
+        }
+
+        protected async void Refresh_EmployeesList(object sender, EventArgs e)
+        {
+            EmployeesListView.ItemsSource = null;
+            EmployeesListView.ItemsSource = await DownloadEmployeesAsync();
+            EmployeesListView.EndRefresh();
         }
 
     }

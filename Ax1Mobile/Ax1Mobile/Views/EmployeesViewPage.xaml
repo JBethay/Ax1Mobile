@@ -9,7 +9,8 @@
                 <StackLayout Padding="8">
                     <Label Text="Employees:" FontSize="Large" FontAttributes="Bold"/>
                 </StackLayout>
-                <ListView x:Name="EmployeesListView" HasUnevenRows="True" IsPullToRefreshEnabled="False">
+                <ListView x:Name="EmployeesListView" HasUnevenRows="True" 
+                          IsPullToRefreshEnabled="True" Refreshing="Refresh_EmployeesList">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
