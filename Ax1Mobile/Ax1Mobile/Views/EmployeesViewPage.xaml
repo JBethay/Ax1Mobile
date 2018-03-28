@@ -4,8 +4,14 @@
              x:Class="Ax1Mobile.Views.EmployeesViewPage"
              BackgroundImage="GrayBlankAx1.png">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
+        <RelativeLayout>
+            <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                        RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+     RelativeLayout.HeightConstraint=
+         "{ConstraintExpression Type=RelativeToParent,
+                                Property=Height,
+                                Factor=1}">
+                <StackLayout>
                 <StackLayout Padding="8">
                     <Label Text="Employees:" FontSize="Large" FontAttributes="Bold"/>
                 </StackLayout>
@@ -37,5 +43,23 @@
                 </ListView>
             </StackLayout>
         </ScrollView>
+            <StackLayout HeightRequest="40" IsEnabled="{Binding IsLoading}" IsVisible="{Binding IsLoading}" HorizontalOptions="Center" VerticalOptions="Center" 
+                        RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                         RelativeLayout.HeightConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=1}">
+                <ActivityIndicator IsRunning="{Binding IsLoading}"
+                         IsVisible="{Binding IsLoading}"
+                          HeightRequest="40"
+                          VerticalOptions="CenterAndExpand"
+                          HorizontalOptions="CenterAndExpand">
+                    <ActivityIndicator.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double" iOS="100" Android="100" WinPhone="400" />
+                    </ActivityIndicator.WidthRequest>
+                    <ActivityIndicator.Color>
+                        <OnPlatform x:TypeArguments="Color"
+                      iOS="#0080FF" WinPhone="#0080FF" Android="#0080FF" />
+                    </ActivityIndicator.Color>
+                </ActivityIndicator>
+            </StackLayout>
+        </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>

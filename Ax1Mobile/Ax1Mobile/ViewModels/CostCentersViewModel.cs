@@ -18,6 +18,14 @@ namespace Ax1Mobile.ViewModels
         private const string Uri = "https://ax1web.azurewebsites.net/api/CostCenters.js";
         private readonly HttpClient _client = new HttpClient();
         private ObservableCollection<CostCenter> _costCenters;
+        private bool isLoading = false;
+        public bool IsLoading
+        {
+            get { return isLoading; }
+            set { isLoading = value;
+                OnPropertyChanged(nameof(IsLoading));
+            }
+        }
         private bool isBusy = false;
         public bool IsBusy
         {
@@ -61,14 +69,14 @@ namespace Ax1Mobile.ViewModels
         /// </summary>
         public async void SetCostCentersAsync()
         {
-            IsBusy = false;
+            IsLoading = true;
             _costCenters = await DownloadCostCentersAsync();
             costCenters.Clear();
             foreach (CostCenter c in _costCenters)
             {
                 costCenters.Add(c);
             }
-            IsBusy = false;
+            IsLoading = false;
         }
 
         /// <summary>
