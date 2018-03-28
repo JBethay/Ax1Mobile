@@ -1,63 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net.Http;
-using Xamarin.Forms;
-using System.Net.Http.Headers;
-using Newtonsoft.Json;
+﻿using Xamarin.Forms;
 
 using Xamarin.Forms.Xaml;
-using System.Collections.ObjectModel;
+using Ax1Mobile.ViewModels;
 
 namespace Ax1Mobile.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class EmployeesViewPage : ContentPage
 	{
-        private const string Uri = "https://ax1web.azurewebsites.net/api/Employees.js";
-        private const string UriCc = "https://ax1web.azurewebsites.net/api/CostCenters.js";
-        private readonly HttpClient _client = new HttpClient();
-        private ObservableCollection<Employee> _employees;
-
         public EmployeesViewPage ()
 		{
 			InitializeComponent ();
-
-            SetEmployeesAsync();
+            BindingContext = new EmployeesViewModel();
 		}
-
-        protected async Task<ObservableCollection<Employee>> DownloadEmployeesAsync()
-        {
-            string contentE = await _client.GetStringAsync(Uri);
-            List<Employee> employees = JsonConvert.DeserializeObject<List<Employee>>(contentE);
-            
-            string contentC = await _client.GetStringAsync(UriCc);
-            List<CostCenter> costCenters = JsonConvert.DeserializeObject<List<CostCenter>>(contentC);
-
-            foreach(Employee e in employees)
-            {
-                e.CostCenter = costCenters.FirstOrDefault(o => o.CostCenterId == e.CostCenterId);
-            }
-
-            _employees = new ObservableCollection<Employee>(employees);
-
-            return _employees;
-        }
-
-        protected async void SetEmployeesAsync()
-        {
-            EmployeesListView.ItemsSource = null;
-            EmployeesListView.ItemsSource = await DownloadEmployeesAsync();
-        }
-
-        protected async void Refresh_EmployeesList(object sender, EventArgs e)
-        {
-            EmployeesListView.ItemsSource = null;
-            EmployeesListView.ItemsSource = await DownloadEmployeesAsync();
-            EmployeesListView.EndRefresh();
-        }
 
     }
 }
