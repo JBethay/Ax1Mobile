@@ -1,11 +1,9 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -14,7 +12,6 @@ namespace Ax1Mobile.ViewModels
 {
     public class CostCentersViewModel : INotifyPropertyChanged
     {
-
         private const string Uri = "https://ax1web.azurewebsites.net/api/CostCenters.js";
         private readonly HttpClient _client = new HttpClient();
         private ObservableCollection<CostCenter> _costCenters;

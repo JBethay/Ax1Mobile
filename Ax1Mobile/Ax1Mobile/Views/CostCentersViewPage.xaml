@@ -16,7 +16,8 @@
                         <Label Text="Cost Centers:" FontSize="Large" FontAttributes="Bold"/>
                     </StackLayout>
                     <ListView x:Name="CostCentersListView" HasUnevenRows="True" ItemsSource="{Binding CostCenters}"
-                              IsPullToRefreshEnabled="True" IsRefreshing="{Binding IsBusy}" RefreshCommand="{Binding RefreshCommand}">
+                              IsPullToRefreshEnabled="True" IsRefreshing="{Binding IsBusy}" RefreshCommand="{Binding RefreshCommand}"
+                              ItemSelected="OnSelection">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
