@@ -14,5 +14,17 @@ namespace Ax1Mobile.Views
             BindingContext = new EmployeesViewModel();
 		}
 
+        public void OnSelection(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null)
+            {
+                return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
+            }
+
+            var c = (Employee)e.SelectedItem;
+
+            DisplayAlert($"Employee Details", $"Name: {c.FirstName} {c.LastName}, Cost Center: {c.CostCenter.CostCenterName}, Pay: {c.AnnualPay:C0}, Start Date: {c.StartDate:MM/dd/yyyy}", "Ok");
+        }
+
     }
 }

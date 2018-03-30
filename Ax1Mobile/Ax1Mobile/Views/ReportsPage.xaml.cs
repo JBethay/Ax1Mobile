@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ax1Mobile.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace Ax1Mobile.Views
 		public ReportsPage ()
 		{
 			InitializeComponent ();
-		}
+            BindingContext = new ReportsViewModel();
+        }
 	}
 }

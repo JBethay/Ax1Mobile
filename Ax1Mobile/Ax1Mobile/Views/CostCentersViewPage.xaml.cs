@@ -24,7 +24,6 @@ namespace Ax1Mobile.Views
             var c =(CostCenter)e.SelectedItem;
 
             DisplayAlert($"Cost Center", $"Name: {c.CostCenterName}, State: {c.State}", "Ok");
-            //((ListView)sender).SelectedItem = null; //uncomment line if you want to disable the visual selection state.
         }
     }
 }
