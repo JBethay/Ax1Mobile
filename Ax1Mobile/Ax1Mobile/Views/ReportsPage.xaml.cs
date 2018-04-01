@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 
 namespace Ax1Mobile.Views
@@ -17,6 +18,12 @@ namespace Ax1Mobile.Views
 		{
 			InitializeComponent ();
             BindingContext = new ReportsViewModel();
+            SetMap(39, -96);
         }
-	}
+
+        private void SetMap(double latitude, double longitude)
+        {
+            CostCenterLocations.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(latitude, longitude), Distance.FromMiles(800)));
+        }
+    }
 }

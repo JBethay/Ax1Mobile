@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:Class="Ax1Mobile.Views.ReportsPage"
              BackgroundImage="GrayBlankAx1.png">
     <ContentPage.Content>
@@ -11,11 +12,36 @@
          "{ConstraintExpression Type=RelativeToParent,
                                 Property=Height,
                                 Factor=1}">
-                <StackLayout>
-                    <StackLayout>
+                <StackLayout Orientation="Vertical" Padding="8">
+                    <StackLayout Orientation="Horizontal" Padding="0">
                         <Label Text="Report:" FontSize="Large" FontAttributes="Bold"/>
                     </StackLayout>
-                    <Label Text="Stuff" FontSize="Large" FontAttributes="Bold"/>
+                    <StackLayout Orientation="Horizontal" Padding="0">
+                        <Label Text="Total Employee Cost: " FontSize="Medium" FontAttributes="Bold"/>
+                        <Label Text="{Binding TotalCost, StringFormat='{0:C0}'}" FontSize="Medium" FontAttributes="Bold"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Padding="0">
+                        <Label Text="Average Cost Per Location: " FontSize="Medium" FontAttributes="Bold"/>
+                        <Label Text="{Binding AverageCost, StringFormat='{0:C0}'}" FontSize="Medium" FontAttributes="Bold"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Padding="0">
+                        <Label Text="Total Number of Employees: " FontSize="Medium" FontAttributes="Bold"/>
+                        <Label Text="{Binding TotalEmployees}" FontSize="Medium" FontAttributes="Bold"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Padding="0">
+                        <Label Text="Average Employees Per Location: " FontSize="Medium" FontAttributes="Bold"/>
+                        <Label Text="{Binding AverageEmployees}" FontSize="Medium" FontAttributes="Bold"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Padding="0">
+                        <Label Text="Total Number of Cost Centers: " FontSize="Medium" FontAttributes="Bold"/>
+                        <Label Text="{Binding TotalCostCenters}" FontSize="Medium" FontAttributes="Bold"/>
+                    </StackLayout>
+                    <StackLayout Padding="8">
+                        <Label Text="Cost Center Locations: " FontSize="Large" FontAttributes="Bold"/>
+                        <maps:Map x:Name="CostCenterLocations" HeightRequest="480" WidthRequest="480" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                                  IsEnabled="True" IsVisible="True" MapType="Street" HasScrollEnabled="True" HasZoomEnabled="True">
+                        </maps:Map>
+                    </StackLayout>
                 </StackLayout>
             </ScrollView>
             <StackLayout HeightRequest="40" IsEnabled="{Binding IsLoading}" IsVisible="{Binding IsLoading}" HorizontalOptions="Center" VerticalOptions="Center" 
