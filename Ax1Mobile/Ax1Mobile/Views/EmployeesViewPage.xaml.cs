@@ -5,6 +5,11 @@ using Ax1Mobile.ViewModels;
 
 namespace Ax1Mobile.Views
 {
+    /// <summary>
+    /// Note: technically the below violates the MVVM design pattern, however because of the low level of complexity 
+    /// I did felt it was acceptable to simply build off of the OnSelection method below rather then building out
+    /// the actions in the View Model.
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class EmployeesViewPage : ContentPage
 	{

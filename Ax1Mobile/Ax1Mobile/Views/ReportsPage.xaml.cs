@@ -15,7 +15,11 @@ using Xamarin.Forms.Xaml;
 
 namespace Ax1Mobile.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+	/// <summary>
+    /// Note: technically the below violates the MVVM design pattern, however because of the low level of complexity 
+    /// I did not feel it was necessary to create an entirely separate Binding Map context and instead utilized the below.
+    /// </summary>
+    [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ReportsPage : ContentPage
 	{
         private ObservableCollection<Pin> pins;
@@ -50,8 +54,11 @@ namespace Ax1Mobile.Views
             foreach(CostCenter c in _costCenters)
             {
                 var geolocation = GetGeoLocation.GetLocatoinServices($"{c.CostCenterName}, {c.State}");
-                Pin pin = new Pin() { Position = new Position(Convert.ToDouble(geolocation.Item1), Convert.ToDouble(geolocation.Item2)), Label=$"{c.CostCenterName}" };
-                _pins.Add(pin);
+                if (geolocation.Item3 == true)
+                {
+                    Pin pin = new Pin() { Position = new Position(Convert.ToDouble(geolocation.Item1), Convert.ToDouble(geolocation.Item2)), Label = $"{c.CostCenterName}" };
+                    _pins.Add(pin);
+                }
             }
             return _pins; 
         }

@@ -17,14 +17,10 @@
                        HorizontalOptions="Start"
                        FontAttributes="Bold"
                        FontSize="Medium"/>
-                <Label Text="Ax1-Mobile is a Xamarin Forms application that utilizes API functionality in the Ax1-Web
-                       application to retrieve stored data from an Azure SQL database. This application retrieves and
-                       deserializes JSON Data for the purpose of displaying the information and generating sample reports. 
-                       In addition the application integrates a Google Maps API for a geographic display of the retrieved data."
+                <Label Text="Ax1-Mobile is a Xamarin Forms application that utilizes API functionality in the Ax1-Web application to retrieve stored data from an Azure SQL database. This application retrieves and deserializes JSON Data for the purpose of displaying the information and generating sample reports. In addition the application integrates a Google Maps API for a geographic display of the retrieved data."
                        HorizontalOptions="Start"
                        FontSize="Small"/>
-                <Label Text="The data retrieved is read-only and the reports that are generated are the same reports that can be found in 
-                       the Ax1-Web application."
+                <Label Text="The data retrieved is read-only and the reports that are generated are the same reports that can be found in the Ax1-Web application."
                        FontSize="Small"/>
                 <Label Text="This Sample application is an extension of the Ax1-Web application and is designed to show how a mobile application and integrate with a web based application program interface."
                        FontSize="Small"/>
