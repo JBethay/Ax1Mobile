@@ -54,11 +54,22 @@ namespace Ax1Mobile.Views
             foreach(CostCenter c in _costCenters)
             {
                 var geolocation = GetGeoLocation.GetLocatoinServices($"{c.CostCenterName}, {c.State}");
+
+                for (var i = 0; i < 10; i++)
+                {
+                    if (geolocation.Item3 == false)
+                    {
+                        geolocation = GetGeoLocation.GetLocatoinServices($"{c.CostCenterName}, {c.State}");
+                    }
+                    else { break; }
+                }
+
                 if (geolocation.Item3 == true)
                 {
                     Pin pin = new Pin() { Position = new Position(Convert.ToDouble(geolocation.Item1), Convert.ToDouble(geolocation.Item2)), Label = $"{c.CostCenterName}" };
                     _pins.Add(pin);
                 }
+                //else { DisplayAlert("oops", "Somthings off", "Ok"); }
             }
             return _pins; 
         }
